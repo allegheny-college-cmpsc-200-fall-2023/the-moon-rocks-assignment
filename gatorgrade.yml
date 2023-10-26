@@ -1,0 +1,104 @@
+- classifier/main.c:
+  - description: classifier/main.c contains no TODOs
+    category: TODOs
+    check: MatchFileFragment
+    options:
+      fragment: 'TODO'
+      count: 0
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c main function creates a rock struct array to house data
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'struct(\s)+rock(\s)+[a-z_]+\[[0-9]+\];'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c uses 2 for loops to iterate through struct arrays
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'for(\s)?\(int(\s)+[a-z_]+(\s)?=(\s)?0;(\s)?[a-z_]+(\s)?<(\s)?[a-z_0-9]+;(\s)+[i+]+\)(\s)?'
+      count: 2
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c main function creates a rock struct to use to store individual samples in iteration
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'struct(\s)+rock(\s)+[a-z_]+;'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c creates a function called average with the correct signature
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'float(\s)+average(\s)?\((.*)\)'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c accesses data in the arrays containing data in main using their indexes
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'rocks\[[a-z_]\]|weights\[[a-z_]\]|types\[[a-z_]\]|ids\[[a-z_]\]'
+      count: 4
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c uses strcpy to move strings into char properties of struct
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'strcpy\('
+      count: 2
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c uses conditional logic to compare first_letter and search_key
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'if(\s)?\([first_letter|\*search_key](\s)?'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c stores first letter of struct at index to first_letter
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'char(\s)first_letter(\s)?=(\s)?[a-z0-9_]+\[(.*)\]\.type\[0\];'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c's rocks array adds at least one item, per README instructions
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'char\s\*rocks[3]'
+      count: 0
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c's types array adds at least one item, per README instructions
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'char\s\*types[3]'
+      count: 0
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c's ids array adds at least one item, per README instructions
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'int\sids[3]'
+      count: 0
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c's weights array adds at least one item, per README instructions
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'float\s\weights[3]'
+      count: 0
+      exact: true
