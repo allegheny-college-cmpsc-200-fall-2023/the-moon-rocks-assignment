@@ -102,3 +102,11 @@
       regex: 'float\s\weights[3]'
       count: 0
       exact: true
+- classifier/main.c:
+  - description: classifier/main.c's rocks struct array adds at least one item, per README instructions
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'struct rock samples[3]'
+      count: 0
+      exact: true
