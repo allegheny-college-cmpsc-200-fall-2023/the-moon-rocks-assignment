@@ -110,3 +110,11 @@
       regex: 'struct rock samples[3]'
       count: 0
       exact: true
+- docs/report.md:
+  - description: docs/report.md answers all questions
+    category: Basic C
+    check: MatchFileFragment
+    options:
+      regex: 'TODO'
+      count: 0
+      exact: true
